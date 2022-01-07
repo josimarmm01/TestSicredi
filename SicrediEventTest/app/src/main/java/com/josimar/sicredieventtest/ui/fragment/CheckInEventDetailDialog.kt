@@ -17,7 +17,6 @@ import com.josimar.sicredieventtest.model.ResponeCheckIn
 import com.josimar.sicredieventtest.repository.Resource
 import com.josimar.sicredieventtest.ui.viewmodel.CheckInViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import java.util.regex.Pattern
 
 class CheckInEventDetailDialog: BottomSheetDialogFragment() {
 
@@ -70,7 +69,7 @@ class CheckInEventDetailDialog: BottomSheetDialogFragment() {
 
     private fun responseCheckIn(resource: Resource<ResponeCheckIn>?) {
         resource?.let {
-            it.date?.let {
+            it.data?.let {
                 viewModel.isSuccess.value = true
                 Handler(Looper.getMainLooper()).postDelayed({
                     dismiss()

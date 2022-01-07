@@ -43,7 +43,7 @@ class ListEventFragment : Fragment() {
         viewModel.getListEvent.observe(requireActivity(), { resorceListEvent ->
             resorceListEvent?.let {
                 viewModel.isLoading.value = false
-                it.date?.let { data ->
+                it.data?.let { data ->
                     if (data.isEmpty()) viewModel.isEmpty.value = true
                     else configRecyclerView(data)
                 }

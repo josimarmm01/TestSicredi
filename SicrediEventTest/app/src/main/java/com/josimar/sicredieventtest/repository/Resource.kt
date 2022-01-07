@@ -1,3 +1,3 @@
 package com.josimar.sicredieventtest.repository
 
-class Resource<T>(val date: T?, val error: String? = null)
+class Resource<T>(val data: T?, val error: String? = null)

@@ -54,7 +54,7 @@ class DetailEventFragment : Fragment() {
         viewModel.getDetailEvent(eventId = eventId).observe(requireActivity(), { resorceDetailEvent ->
             resorceDetailEvent?.let { it ->
                 viewModel.isLoading.value = false
-                it.date?.let { data -> viewModel.eventDetail.value = data }
+                it.data?.let { data -> viewModel.eventDetail.value = data }
                 it.error?.let { viewModel.isFail.value = true }
             }
         })
