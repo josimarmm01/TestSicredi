@@ -36,7 +36,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
-                    android:textColor="#000"
+                    android:textColor="@color/color_tex_view_event"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:text="@{People}"

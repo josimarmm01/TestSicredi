@@ -17,6 +17,7 @@ import com.josimar.sicredieventtest.model.ResponeCheckIn
 import com.josimar.sicredieventtest.repository.Resource
 import com.josimar.sicredieventtest.ui.viewmodel.CheckInViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.util.regex.Pattern
 
 class CheckInEventDetailDialog: BottomSheetDialogFragment() {
 
@@ -58,7 +59,7 @@ class CheckInEventDetailDialog: BottomSheetDialogFragment() {
     }
 
     private fun confirmCheckInEventDetail() {
-        if (validateFields()) {
+        if (validateName() && isValidStringEmail()) {
             viewModel.setCheckIn(CheckIn(
                     eventDetailId.toString(),
                     viewBinding.txtNameCheckInEvent.text.toString(),
@@ -76,20 +77,29 @@ class CheckInEventDetailDialog: BottomSheetDialogFragment() {
                 }, 2000)
             }
             it.error?.let {
-                Toast.makeText(requireContext(), "Erro ao salvar!", Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(),
+                    resources.getString(R.string.check_in_error_save_event),
+                    Toast.LENGTH_LONG).show()
             }
         }
     }
 
-    private fun validateFields(): Boolean {
-
+    private fun validateName(): Boolean {
         val name = viewBinding.txtNameCheckInEvent.text.toString()
+        if (name.isNotEmpty()) return true
+        viewBinding.labelNameCheckInEvent.error =
+            resources.getString(R.string.check_in_name_invalid)
+        return false
+    }
+
+    private fun isValidStringEmail(): Boolean {
         val email = viewBinding.txtEmailCheckInEvent.text.toString()
+        if (email.isNotEmpty() && android.util.Patterns.EMAIL_ADDRESS
+            .matcher(email?:"").matches()) return true
 
-        if (name.isEmpty()) viewBinding.labelNameCheckInEvent.error = "Informe o nome!"
-        if (email.isEmpty()) viewBinding.labelEmailCheckInEvent.error = "Informe o Email!"
-
-        return name.isNotEmpty() && email.isNotEmpty()
+        viewBinding.labelEmailCheckInEvent.error =
+            resources.getString(R.string.check_in_email_invalid)
+        return false
     }
 
 }

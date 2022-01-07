@@ -19,8 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             app:cardCornerRadius="1dp"
-            app:cardElevation="3dp"
-            app:cardBackgroundColor="@color/white" >
+            app:cardElevation="3dp" >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -57,7 +56,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:textColor="#000"
+                    android:textColor="@color/color_tex_view_event"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:text="@{Event.title}"
@@ -70,7 +69,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:textColor="#000"
+                    android:textColor="@color/color_tex_view_event"
                     android:textSize="14sp"
                     android:textStyle="italic"
                     formatDate="@{Event.date}"

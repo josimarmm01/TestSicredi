@@ -45,7 +45,7 @@
             isVisible="@{viewModel.isLoading}"
             android:indeterminate="true"
             android:visibility="gone"
-            android:indeterminateTint="@color/black"
+            android:indeterminateTint="@color/color_tex_view_event"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

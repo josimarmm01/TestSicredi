@@ -9,4 +9,9 @@
     <string name="email_check_in_detail_event">Email</string>
     <string name="name_check_in_detail_event">Nome</string>
     <string name="check_in_cancel_detail_event">Cancelar</string>
+
+    <string name="check_in_error_save_event">Erro ao salvar!</string>
+    <string name="check_in_name_invalid">Informe o nome!</string>
+    <string name="check_in_email_invalid">"E-mail inválido!"</string>
+
 </resources>
