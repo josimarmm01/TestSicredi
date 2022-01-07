@@ -9,6 +9,7 @@
 <div/>
 <br>
 <br>
+  
 **Arquitetura utilizada:** MVVM que é  a arquitetura recomendada pela google para aplicativos Android em conjunto com os componentes do Android Jetpack aplicando os conceitos de Clean Code.
 
 ![arquitetura](https://user-images.githubusercontent.com/23081846/148555169-6535521c-843f-415c-b5ad-55f5ba3c1b95.png)
