@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SicrediEventTest</string>
+    <string name="list_event_empty">Não há eventos disponiveis</string>
+    <string name="detail_event_empty">Ocorreu um problema ao abrir o evento</string>
+    <string name="detail_event_title_participants_empty">Participantes</string>
+    <string name="participants_empty_detail_event">Ainda não há participantes</string>
+    <string name="check_in_detail_event">Check in</string>
+    <string name="local_title_participants_empty">Local do Evento</string>
+    <string name="email_check_in_detail_event">Email</string>
+    <string name="name_check_in_detail_event">Nome</string>
+    <string name="check_in_cancel_detail_event">Cancelar</string>
+</resources>

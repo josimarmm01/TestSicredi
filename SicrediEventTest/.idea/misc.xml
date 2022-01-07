@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Josimar/AndroidStudioProjects/SicrediEventTest/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.321875" />
+        <entry key="..\:/Users/Josimar/AndroidStudioProjects/SicrediEventTest/app/src/main/res/drawable/ic_baseline_error_24.xml" value="0.23697916666666666" />
+        <entry key="..\:/Users/Josimar/AndroidStudioProjects/SicrediEventTest/app/src/main/res/drawable/ic_baseline_image_not_supported_24.xml" value="0.321875" />
+        <entry key="..\:/Users/Josimar/AndroidStudioProjects/SicrediEventTest/app/src/main/res/drawable/ic_launcher_background.xml" value="0.321875" />
+        <entry key="..\:/Users/Josimar/AndroidStudioProjects/SicrediEventTest/app/src/main/res/drawable/ic_placeholder_background.xml" value="0.321875" />
+        <entry key="..\:/Users/Josimar/AndroidStudioProjects/SicrediEventTest/app/src/main/res/drawable/ic_placeholder_image_event_background.xml" value="0.321875" />
+        <entry key="..\:/Users/Josimar/AndroidStudioProjects/SicrediEventTest/app/src/main/res/drawable/rounded_image_event.xml" value="0.3828125" />
+        <entry key="..\:/Users/Josimar/AndroidStudioProjects/SicrediEventTest/app/src/main/res/layout/activity_main.xml" value="0.21105072463768115" />
+        <entry key="..\:/Users/Josimar/AndroidStudioProjects/SicrediEventTest/app/src/main/res/layout/adapter_event.xml" value="0.28125" />
+        <entry key="..\:/Users/Josimar/AndroidStudioProjects/SicrediEventTest/app/src/main/res/layout/adapter_people.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Josimar/AndroidStudioProjects/SicrediEventTest/app/src/main/res/layout/detail_event.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Josimar/AndroidStudioProjects/SicrediEventTest/app/src/main/res/layout/detail_news.xml" value="0.28125" />
+        <entry key="..\:/Users/Josimar/AndroidStudioProjects/SicrediEventTest/app/src/main/res/layout/list_news.xml" value="0.2890625" />
+        <entry key="..\:/Users/Josimar/AndroidStudioProjects/SicrediEventTest/app/src/main/res/layout/ly_check_in_detail_event_dialog.xml" value="0.325" />
+        <entry key="..\:/Users/Josimar/AndroidStudioProjects/SicrediEventTest/app/src/main/res/layout/ly_detail_event.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Josimar/AndroidStudioProjects/SicrediEventTest/app/src/main/res/layout/ly_detail_event_date.xml" value="0.404126213592233" />
+        <entry key="..\:/Users/Josimar/AndroidStudioProjects/SicrediEventTest/app/src/main/res/layout/ly_detail_event_empty.xml" value="0.44166666666666665" />
+        <entry key="..\:/Users/Josimar/AndroidStudioProjects/SicrediEventTest/app/src/main/res/layout/ly_list_event.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Josimar/AndroidStudioProjects/SicrediEventTest/app/src/main/res/layout/ly_list_event_empty.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Josimar/AndroidStudioProjects/SicrediEventTest/app/src/main/res/mipmap-anydpi-v26/ic_placeholder.xml" value="0.3828125" />
+        <entry key="..\:/Users/Josimar/AndroidStudioProjects/SicrediEventTest/app/src/main/res/mipmap-anydpi-v26/ic_placeholder_image_event.xml" value="0.321875" />
+        <entry key="..\:/Users/Josimar/Documents/TestSicredi/SicrediEventTest/app/src/main/res/drawable/ic_launcher_background.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/Josimar/Documents/TestSicredi/SicrediEventTest/app/src/main/res/drawable/rounded_image_event.xml" value="0.3828125" />
+        <entry key="..\:/Users/Josimar/Documents/TestSicredi/SicrediEventTest/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Josimar/Documents/TestSicredi/SicrediEventTest/app/src/main/res/layout/adapter_event.xml" value="0.271875" />
+        <entry key="..\:/Users/Josimar/Documents/TestSicredi/SicrediEventTest/app/src/main/res/layout/adapter_people.xml" value="0.271875" />
+        <entry key="..\:/Users/Josimar/Documents/TestSicredi/SicrediEventTest/app/src/main/res/layout/ly_check_in_detail_event_dialog.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Josimar/Documents/TestSicredi/SicrediEventTest/app/src/main/res/layout/ly_detail_event.xml" value="0.271875" />
+        <entry key="..\:/Users/Josimar/Documents/TestSicredi/SicrediEventTest/app/src/main/res/layout/ly_detail_event_data.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Josimar/Documents/TestSicredi/SicrediEventTest/app/src/main/res/layout/ly_detail_event_empty.xml" value="0.3378623188405797" />
+        <entry key="..\:/Users/Josimar/Documents/TestSicredi/SicrediEventTest/app/src/main/res/layout/ly_list_event.xml" value="0.3378623188405797" />
+        <entry key="..\:/Users/Josimar/Documents/TestSicredi/SicrediEventTest/app/src/main/res/layout/ly_list_event_empty.xml" value="0.3378623188405797" />
+        <entry key="..\:/Users/Josimar/Documents/TestSicredi/SicrediEventTest/app/src/main/res/mipmap-anydpi-v26/ic_placeholder.xml" value="0.24166666666666667" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listEventFragment">
+
+    <fragment
+        android:id="@+id/listEventFragment"
+        android:name="com.josimar.sicredieventtest.ui.fragment.ListEventFragment"
+        android:label="Eventos"
+        tools:layout="@layout/ly_list_event">
+        <action
+            android:id="@+id/action_listEventFragment_to_detailEventFragment"
+            app:destination="@id/detailEventFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailEventFragment"
+        android:name="com.josimar.sicredieventtest.ui.fragment.DetailEventFragment"
+        android:label="Detalhe do Evento"
+        tools:layout="@layout/ly_detail_event">
+        <argument
+            android:name="eventId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_detailEventFragment_to_checkInEventDetailDialog"
+            app:destination="@id/checkInEventDetailDialog" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/checkInEventDetailDialog"
+        android:name="com.josimar.sicredieventtest.ui.fragment.CheckInEventDetailDialog"
+        android:label="Detalhe do Evento"
+        tools:layout="@layout/ly_check_in_detail_event_dialog" >
+        <argument
+            android:name="eventDetailId"
+            app:argType="string" />
+    </dialog>
+
+</navigation>
