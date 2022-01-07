@@ -7,6 +7,8 @@
 <img src="https://user-images.githubusercontent.com/23081846/148554835-1797ab94-d758-4698-a966-f6fb9d835711.jpg" alt="drawing" width="200"/> &nbsp;
 <img src="https://user-images.githubusercontent.com/23081846/148554844-d0283625-3700-445f-a8d0-4a3b6199cc58.jpg" alt="drawing" width="200"/>
 <div/>
+  
+  
 **Arquitetura utilizada:** MVVM que é  a arquitetura recomendada pela google para aplicativos Android em conjunto com os componentes do Android Jetpack aplicando os conceitos de Clean Code.
 
 ![arquitetura](https://user-images.githubusercontent.com/23081846/148555169-6535521c-843f-415c-b5ad-55f5ba3c1b95.png)
