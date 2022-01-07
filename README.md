@@ -12,13 +12,13 @@
 
 **Tecnologias utilizadas:**
 
-ViewModel
-Navigation
-LiveData
-Databinding
-Retrofit
-Koin
-Glide
-Material Design
-Maps sdk
-Lottie
+ViewModel <br/>
+Navigation <br/>
+LiveData <br/>
+Databinding <br/>
+Retrofit <br/>
+Koin <br/>
+Glide <br/>
+Material Design <br/>
+Maps sdk <br/>
+Lottie <br/>
