@@ -12,7 +12,7 @@ class ListPeopleDetailEventAdapter(private val listPeople:List<String>)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = AdapterPeopleBinding.inflate(inflater, parent, false)
-        return EventViewHolder(binding)
+        return PeopleViewHolder(binding)
     }
 
     override fun getItemCount(): Int = listPeople.size
@@ -26,7 +26,7 @@ class ListPeopleDetailEventAdapter(private val listPeople:List<String>)
         abstract fun bind(item: String)
     }
 
-    inner class EventViewHolder(private val binding: AdapterPeopleBinding) : ItemViewHolder(binding) {
+    inner class PeopleViewHolder(private val binding: AdapterPeopleBinding) : ItemViewHolder(binding) {
         override fun bind(item: String) {
 
             binding.people = item
