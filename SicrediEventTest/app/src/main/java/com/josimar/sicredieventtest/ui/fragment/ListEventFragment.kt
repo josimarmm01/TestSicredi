@@ -37,24 +37,27 @@ class ListEventFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         getListEvent()
+        setupObservers()
+    }
+
+    private fun setupObservers() {
+        viewModel.listEvent.observe(requireActivity(), ::configRecyclerView)
     }
 
     private fun getListEvent() {
-        viewModel.getListEvent.observe(requireActivity(), { resorceListEvent ->
-            resorceListEvent?.let {
-                viewModel.isLoading.value = false
-                it.data?.let { data ->
-                    if (data.isEmpty()) viewModel.isEmpty.value = true
-                    else configRecyclerView(data)
-                }
-                it.error?.let { viewModel.isFail.value = true }
+        viewModel.getListEvent().observe(requireActivity(), {
+            it?.let { resource ->
+                resource.data?.let { listEvent -> viewModel.listEvent.value = listEvent }
+                resource.error?.let { errorEvent -> viewModel.errorList.value = errorEvent }
             }
         })
     }
 
-    private fun configRecyclerView(listEvent: List<Event>) {
+    private fun configRecyclerView(listEvent: List<Event>?) {
+        listEvent?.let {
         listEventAdapter = ListEventAdapter(listEvent, ::goToEventDetails)
         viewBinding.listEventRecyclerview.adapter = listEventAdapter
+        }
     }
 
     private fun goToEventDetails(event: Event) {
