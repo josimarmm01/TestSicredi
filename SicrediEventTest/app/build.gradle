@@ -84,4 +84,7 @@ dependencies {
     //Lottie Animation
     implementation "com.airbnb.android:lottie:$lottie_version"
 
+    //Coroutine
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+
 }   

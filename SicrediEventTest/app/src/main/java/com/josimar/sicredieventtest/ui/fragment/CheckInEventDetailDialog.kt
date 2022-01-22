@@ -14,7 +14,7 @@ import com.josimar.sicredieventtest.R
 import com.josimar.sicredieventtest.databinding.LyCheckInDetailEventDialogBinding
 import com.josimar.sicredieventtest.model.CheckIn
 import com.josimar.sicredieventtest.model.ResponeCheckIn
-import com.josimar.sicredieventtest.repository.Resource
+import com.josimar.sicredieventtest.repository.EventRepository.Result
 import com.josimar.sicredieventtest.ui.viewmodel.CheckInViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -47,11 +47,9 @@ class CheckInEventDetailDialog: BottomSheetDialogFragment() {
     }
 
     private fun setupView() {
-
         viewBinding.btnConfirmCheckInDetailEvent.setOnClickListener {
             confirmCheckInEventDetail()
         }
-
         viewBinding.btnCancelCheckInDetailEvent.setOnClickListener {
             dismiss()
         }
@@ -60,27 +58,39 @@ class CheckInEventDetailDialog: BottomSheetDialogFragment() {
     private fun confirmCheckInEventDetail() {
         if (validateName() && isValidStringEmail()) {
             viewModel.setCheckIn(CheckIn(
-                    eventDetailId.toString(),
+                    eventDetailId,
                     viewBinding.txtNameCheckInEvent.text.toString(),
                     viewBinding.txtEmailCheckInEvent.text.toString()
             )).observe(requireActivity(), ::responseCheckIn)
         }
     }
 
-    private fun responseCheckIn(resource: Resource<ResponeCheckIn>?) {
-        resource?.let {
-            it.data?.let {
-                viewModel.isSuccess.value = true
-                Handler(Looper.getMainLooper()).postDelayed({
-                    dismiss()
-                }, 2000)
+    private fun responseCheckIn(responseCheckIn: Result<ResponeCheckIn?>) {
+        when(responseCheckIn) {
+            is Result.Success -> {
+                responseCheckIn.data?.let { successResponse() }
             }
-            it.error?.let {
-                Toast.makeText(requireContext(),
-                    resources.getString(R.string.check_in_error_save_event),
-                    Toast.LENGTH_LONG).show()
+            is Result.Error -> {
+                responseCheckIn.exception?.let {
+                    errorResponse()
+                }
             }
         }
+    }
+
+    private fun successResponse(): Boolean {
+        viewModel.isSuccess.value = true
+        return Handler(Looper.getMainLooper()).postDelayed({
+            dismiss()
+        }, 2000)
+    }
+
+    private fun errorResponse() {
+        Toast.makeText(
+            requireContext(),
+            resources.getString(R.string.check_in_error_save_event),
+            Toast.LENGTH_LONG
+        ).show()
     }
 
     private fun validateName(): Boolean {

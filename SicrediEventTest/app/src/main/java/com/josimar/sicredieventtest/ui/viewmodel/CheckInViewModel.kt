@@ -6,13 +6,12 @@ import androidx.lifecycle.ViewModel
 import com.josimar.sicredieventtest.model.CheckIn
 import com.josimar.sicredieventtest.model.ResponeCheckIn
 import com.josimar.sicredieventtest.repository.EventRepository
-import com.josimar.sicredieventtest.repository.Resource
 
 class CheckInViewModel(private val repository: EventRepository) : ViewModel() {
 
     val isSuccess = MutableLiveData<Boolean>(false)
     
-    fun setCheckIn(checkIn: CheckIn) : LiveData<Resource<ResponeCheckIn>?> {
+    fun setCheckIn(checkIn: CheckIn) : LiveData<EventRepository.Result<ResponeCheckIn?>> {
         return  repository.setCheckIn(checkIn = checkIn)
     }
 }

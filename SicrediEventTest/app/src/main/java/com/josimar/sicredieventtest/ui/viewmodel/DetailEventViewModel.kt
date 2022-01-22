@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.josimar.sicredieventtest.model.Event
 import com.josimar.sicredieventtest.repository.EventRepository
-import com.josimar.sicredieventtest.repository.Resource
 
 class DetailEventViewModel(private val repository: EventRepository) : ViewModel() {
 
@@ -14,7 +13,7 @@ class DetailEventViewModel(private val repository: EventRepository) : ViewModel(
 
     val eventDetail = MutableLiveData<Event?>()
 
-    fun getDetailEvent(eventId: String) : LiveData<Resource<Event>?> {
+    fun getDetailEvent(eventId: String) : LiveData<EventRepository.Result<Event?>> {
         return  repository.getEventId(eventId = eventId)
     }
 

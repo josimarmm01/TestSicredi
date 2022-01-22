@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.josimar.sicredieventtest.model.Event
 import com.josimar.sicredieventtest.repository.EventRepository
-import com.josimar.sicredieventtest.repository.Resource
+import com.josimar.sicredieventtest.repository.EventRepository.Result
 
 class ListEventViewModel(private val repository: EventRepository) : ViewModel() {
 
@@ -20,7 +20,7 @@ class ListEventViewModel(private val repository: EventRepository) : ViewModel() 
         observerResorceListEvent()
     }
 
-    fun getListEvent() : LiveData<Resource<List<Event>?>> {
+    fun getListEvent() : LiveData<Result<List<Event>?>> {
         return repository.getListEvent()
     }
 

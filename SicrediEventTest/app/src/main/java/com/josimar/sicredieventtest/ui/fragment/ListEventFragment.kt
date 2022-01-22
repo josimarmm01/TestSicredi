@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.josimar.sicredieventtest.databinding.LyListEventBinding
 import com.josimar.sicredieventtest.model.Event
+import com.josimar.sicredieventtest.repository.EventRepository.Result
 import com.josimar.sicredieventtest.ui.adapter.ListEventAdapter
 import com.josimar.sicredieventtest.ui.viewmodel.ListEventViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -45,10 +46,14 @@ class ListEventFragment : Fragment() {
     }
 
     private fun getListEvent() {
-        viewModel.getListEvent().observe(requireActivity(), {
-            it?.let { resource ->
-                resource.data?.let { listEvent -> viewModel.listEvent.value = listEvent }
-                resource.error?.let { errorEvent -> viewModel.errorList.value = errorEvent }
+        viewModel.getListEvent().observe(requireActivity(), { result ->
+            when(result) {
+                is Result.Success -> {
+                    result.data?.let { viewModel.listEvent.value = it }
+                }
+                is Result.Error -> {
+                    result.exception?.let { viewModel.errorList.value = it.toString() }
+                }
             }
         })
     }
