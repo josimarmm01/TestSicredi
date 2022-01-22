@@ -1,51 +1,60 @@
 package com.josimar.sicredieventtest.repository
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.liveData
 import com.josimar.sicredieventtest.model.CheckIn
-import com.josimar.sicredieventtest.model.Event
-import com.josimar.sicredieventtest.model.ResponeCheckIn
-import com.josimar.sicredieventtest.retrofit.webclient.EventWebClient
+import com.josimar.sicredieventtest.retrofit.AppRetrofit
+import com.josimar.sicredieventtest.retrofit.service.EventService
+import java.net.ConnectException
 
-class EventRepository(private val webclient: EventWebClient = EventWebClient()) {
+private const val MSG_FAIL = "Falha ao buscar o endereco"
 
-    fun getListEvent(): LiveData<Resource<List<Event>?>> {
+class EventRepository(private val service: EventService = AppRetrofit().eventService) {
 
-        val lisEvent = MutableLiveData<Resource<List<Event>?>>()
-
-        webclient.getListEvent(success = {
-            lisEvent.value = Resource(it)
-        }, failure = {
-            lisEvent.value = Resource(null, it)
-        })
-
-        return lisEvent
+    sealed class Result<out R> {
+        data class Success<out T>(val data: T?) : Result<T?>()
+        data class Error(val exception: Exception) : Result<Nothing>()
     }
 
-    fun getEventId(eventId: String): LiveData<Resource<Event>?> {
+    fun getListEvent() = liveData {
 
-        val event = MutableLiveData<Resource<Event>?>()
+        try {
+            val response = service.getListEvent()
+            if (response.isSuccessful)
+                emit(Result.Success(data = response.body()))
+            else
+                emit(Result.Error(exception = Exception(MSG_FAIL)))
 
-        webclient.getEventId(eventId, success = {
-            event.value = Resource(it)
-        }, failure = {
-            event.value = Resource(null, it)
-        })
-
-        return event
+        } catch (e: Exception) {
+            emit(Result.Error(exception = e))
+        }
     }
 
-    fun setCheckIn(checkIn: CheckIn): LiveData<Resource<ResponeCheckIn>?> {
+    fun getEventId(eventId: String) = liveData {
 
-        val event = MutableLiveData<Resource<ResponeCheckIn>?>()
+        try {
+            val response = service.getEventId(eventId = eventId)
+            if (response.isSuccessful)
+                emit(Result.Success(data = response.body()))
+            else
+                emit(Result.Error(exception = Exception(MSG_FAIL)))
 
-        webclient.setCheckIn(checkIn = checkIn, success = {
-            event.value = Resource(it)
-        }, failure = {
-            event.value = Resource(null, it)
-        })
+        } catch (e: Exception) {
+            emit(Result.Error(exception = e))
+        }
+    }
 
-        return event
+    fun setCheckIn(checkIn: CheckIn) = liveData {
+
+        try {
+            val response = service.setCheckIn(checkIn = checkIn)
+            if (response.isSuccessful)
+                emit(Result.Success(data = response.body()))
+            else
+                emit(Result.Error(exception = Exception(MSG_FAIL)))
+
+        } catch (e: Exception) {
+            emit(Result.Error(exception = e))
+        }
     }
 
 }

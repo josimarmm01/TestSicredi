@@ -13,6 +13,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.josimar.sicredieventtest.databinding.LyDetailEventBinding
 import com.josimar.sicredieventtest.model.Event
+import com.josimar.sicredieventtest.repository.EventRepository.Result
 import com.josimar.sicredieventtest.ui.adapter.ListPeopleDetailEventAdapter
 import com.josimar.sicredieventtest.ui.viewmodel.DetailEventViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -51,11 +52,15 @@ class DetailEventFragment : Fragment() {
     }
 
     private fun getEventId() {
-        viewModel.getDetailEvent(eventId = eventId).observe(requireActivity(), { resorceDetailEvent ->
-            resorceDetailEvent?.let { it ->
-                viewModel.isLoading.value = false
-                it.data?.let { data -> viewModel.eventDetail.value = data }
-                it.error?.let { viewModel.isFail.value = true }
+        viewModel.getDetailEvent(eventId = eventId).observe(requireActivity(), { detailEvent ->
+            viewModel.isLoading.value = false
+            when(detailEvent) {
+                is Result.Success -> {
+                    detailEvent.data?.let { viewModel.eventDetail.value = it }
+                }
+                is Result.Error -> {
+                    detailEvent.exception?.let {viewModel.isFail.value = true }
+                }
             }
         })
     }
